@@ -1,4 +1,5 @@
-/*Write a program to perform following questions and print the output*/
+// DAY 1 OF C PROGRAMMING CODING
+// Write a program to input two numbers and display their sum, difference, product, and quotient.
 // a+b+c
 
 #include <stdio.h>
