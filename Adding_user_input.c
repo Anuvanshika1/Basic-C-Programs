@@ -1,4 +1,5 @@
-/*Write a program to add two numbers a and b taking user input */
+// DAY 1 C CODING
+// Write a program to input two numbers and display their sum.
 #include <stdio.h>
 int main() 
 {
