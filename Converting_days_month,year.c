@@ -1,3 +1,4 @@
+// write a program to convert given number of days into years,remaining month and remaining days
 #include <stdio.h>
 
 int main() {
