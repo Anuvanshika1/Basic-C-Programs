@@ -1,0 +1,14 @@
+// Write a program to convert user input seconds to Hours,minutes and second format
+#include <stdio.h>
+int main(){
+    int S,m,h,s,r;
+    printf("Enter the value of Seconds: ");
+    scanf("%d",&S);
+    h=S/3600;
+    r=S%3600;
+    m=r/60;
+    s=r%60;
+    printf("h:m:s is %d:%d:%d",h,m,s);
+    
+    return 0;
+}
