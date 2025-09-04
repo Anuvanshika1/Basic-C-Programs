@@ -5,6 +5,10 @@
 //Next 5 days late: ₹4/day
 //Next 20 days days late: ₹6/day
 //More than 30 days: Membership Cancelled.
+
+/*In the question it has been said for next 5 days and 20 days, but the test cases are designed that if the book is even late by 8 days
+do put the fine to previous 5 days too with the same per day rate which will be applied if book is late after 5 days.
+So, i made the code according to the test cases.*/
 #include <stdio.h>
 
 int main() {
@@ -21,12 +25,12 @@ int main() {
     }
     else if((d<=g) && (d>=first))
     {
-        f=(5*2)+(d-5)*4;
+        f=d*4;
         printf("Fine for %d days late book is Rs %d",d,f);
     }
     else if((d<=h) && (d>=g))
     {
-         f=(5*2) + (5*4)+(d-10)*6;
+         f=d*6;
         printf("Fine for %d days late book is Rs %d",d,f);
     }
     else {
@@ -35,8 +39,6 @@ int main() {
 
     return 0;
 }
-
-
 
 
 // Write a program to calculate electricity bill based on units consumed with these
