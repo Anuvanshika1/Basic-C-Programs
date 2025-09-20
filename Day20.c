@@ -23,37 +23,28 @@ printf("The product of the odd number is: %d",multi);
 
 // Write a program to find the 1’s complement of a binary number and print it.
 
-#include <stdio.h>
-int main() {
-int num,com=0;
-    int p=1,r,t,digits;
-
-    printf("Enter a binary number: ");
+#include<stdio.h>
+int main(){
+    int a,b=0,num,p=1,count=0,t;
+    printf("Enter the binary number: ");
     scanf("%d",&num);
-    t=num; 
-    // counting the total number of digits, so that the output wouldn't remove the last 0
-     while (t>0) {
-        digits++;
+    t=num; // assigning the original value to t temporarily
+    // counting the digits the user entered
+    while(t>0){
         t=t/10;
+        count++;  // count will increase after every iteration of division untill the value of t is greater than 1
     }
- 
-    while (num > 0) {
-        r = num%10;   // getting the remainder
-        if (r == 0)  // if the remainder is equal to 0 we will change that to 1
-        {
-            com= com+1*p; // the place value starts from 1 to if 0 than it will turn to 1 and the complement changes from 0 to 1
-            }
-        else
-        {
-            com=com+0*p;  // if remainder is equal to 1 than it will be turned to 0 
-            } 
-
-        num=num/10;    // the value of new num
-        p=p*10;     // we need increase place value after every condition 
+    while(num>0){
+        a=num%10; // remainder
+        if(a==1){  // checking if the remainder is equal to 1, if yes than at the "ones" position we will multiply it with 0
+            b=b+0*p; // and with every iteration the value of p will be increasing to 1s,10s,100s,1000s
+        }
+        else{
+            b=b+1*p; // if reaminder is equal to 0 than we need to multiply the place with 1 and adding it to previous b value
+        }
+        num=num/10;  // new number value
+        p=p*10;  // increasing the value of place where we need to put the values
     }
-
-    printf("1's Complement is: %0*d\n",digits,com);// preserving the preceding zeros instead of putting space in front
-
+    printf("The 1s complement of the binary number is: %0*d",count,b); // we used %0*d so include 0 rather than using space in the last place if its 0
     return 0;
 }
-
