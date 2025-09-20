@@ -8,10 +8,7 @@ int main(){
     
     for(i=1;i<=n;i++)
     {   
-        if(i%2!=0)
-        {  
-            sum=sum+i; 
-        }
+        sum=sum+2*i+1; // it will give us the first n odd numbers untill i=n
        
     }
      printf("%d",sum);
