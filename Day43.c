@@ -31,8 +31,7 @@ int main() {
 }
 
 //Check if the string is a palindrome or not
-// Day 43
-// Reverse a string
+
 #include <stdio.h>
 
 int main() {
