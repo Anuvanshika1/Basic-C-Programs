@@ -10,7 +10,7 @@ int main(){
     
     printf("Enter the value of a and b: ");
     scanf("%d %d",&a,&b);
-    point(&a,&b);
+    printf(&a,&b);
     printf("Values of a and b: %d %d",a,b);
     return 0;
     
