@@ -134,3 +134,25 @@ int main(){
   books(b1);
   return 0;
 }
+
+/*Create a union contaning 6 string: name, home_address, hostel_address,city,state and zip. Write a c program to display your present address.*/
+#include <stdio.h>
+
+union Address{
+    char name[50];
+    char home_address[100];
+    char hostel_address[100];
+    char city[50];
+    char state[50];
+    char zip[10];
+};
+
+int main(){
+    union Address addr;
+
+    printf("Enter your present address: ");
+    scanf("%s", addr.home_address);
+    printf("\nYour Present Address is: %s\n", addr.home_address);
+
+    return 0;
+}
