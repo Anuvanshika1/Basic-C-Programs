@@ -1,3 +1,77 @@
+/* Write a C program that uses functions to perform the following operations:
+a. Reading a complex number. 
+b. Writing a complex number. 
+c. Addition and subtraction of two complex numbers
+*/
+
+#include <stdio.h>
+
+// structure to store complex number
+struct complex {
+    float real;
+    float imag;
+};
+// function to read a complex number
+struct complex readcomplex() {
+    struct complex c; // using structure variable c that will return the real and imaginary values to the main structure
+    printf("Enter the value of real and imaginary part: ");
+    scanf("%f %f", &c.real, &c.imag);
+    return c;
+}
+
+// function to write a complex number
+void write_complex(struct complex c) {
+    printf("%.2f + %.2fi", c.real, c.imag);
+}
+
+// function to add two complex numbers
+struct complex sum(struct complex c1, struct complex c2) {
+    struct complex result_sum; // using variable name result_sum that will store the real and imaginary part sum for the two structures
+    result_sum.real = c1.real + c2.real;
+    result_sum.imag = c1.imag + c2.imag;
+    return result_sum;
+}
+
+// function to subtract two complex numbers
+struct complex sub(struct complex c1, struct complex c2) {
+    struct complex result_sub; // using variable name result_sub that will store the real and imaginary part for the two structures for doing the subtraction and putting them in one structure result_sub
+    result_sub.real = c1.real - c2.real;
+    result_sub.imag = c1.imag - c2.imag;
+    return result_sub;
+}
+
+int main() {
+    /*We first create structure variables c1 and c2 to store 
+   the two complex numbers entered by the user.
+   We also create resum and resub to store the results of 
+   addition and subtraction.*/
+    struct complex c1, c2, resum, resub;
+/* We call the readComplex() function twice.
+   - The first call stores the first complex number in c1.
+   - The second call stores the second complex number in c2.
+   Since readComplex() returns a structure, we directly assign it to c1 and c2.*/
+   
+    printf("Enter first complex number\n");
+    c1 = readcomplex();
+
+    printf("Enter second complex number\n");
+    c2 = readcomplex();
+/*Then we call the add() function and pass c1 and c2 as arguments.
+   The add() function returns a structure containing the sum, 
+   which we store in resum.*/
+    resum = sum(c1, c2);
+    resub = sub(c1, c2);
+
+    printf("\nAddition: ");
+    write_complex(resum);
+
+    printf("\nSubtraction: ");
+    write_complex(resub);
+
+    return 0;
+}
+
+
 // Wap to compute the monthly pay of 100 employees using each employees name, basic pay. the DA is computed as 52% of the basic pay. gross salary(basic pay+DA). print the employees name and gross salary.
 /*
 #include <stdio.h>
