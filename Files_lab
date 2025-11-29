@@ -1,0 +1,62 @@
+/* Write a C program that:
+1.	Creates a new file and writes some text into it.
+2.	Opens the same file and reads its content character by character.
+3.	Opens the file again and reads its content line by line, displaying each line on the console.
+4.	Combine all three parts into a single program.
+*/
+
+#include<stdio.h>
+int main(){
+    
+    FILE *fp;
+    char ch;
+    char line[256];
+
+    // PART 1: CREATE and WRITE FILE
+
+    fp = fopen("myfile.txt", "w");
+    if(fp == NULL){
+       	printf("Error creating file!\n");
+        return 1;
+   	}
+
+    fprintf(fp, "Hello! This is a new file.\n");
+    fprintf(fp, "This text is written using a combined C program.\n");
+    fclose(fp);
+    printf("PART 1: File created and text written successfully.\n\n");
+
+
+    // PART 2: READ FILE CHARACTER BY CHARACTER
+
+    fp = fopen("myfile.txt", "r");
+    if(fp == NULL){
+        printf("Error opening file for character reading!\n");
+        return 1;
+    }
+    
+    printf("PART 2: Reading file character by character:\n");
+    while((ch = fgetc(fp)) != EOF){
+        putchar(ch);
+    }
+    
+    fclose(fp);
+    printf("\n\n");
+
+// PART 3: READ FILE LINE BY LINE
+
+    fp = fopen("myfile.txt", "r");
+    if(fp == NULL){
+        printf("Error opening file for line reading!\n");
+        return 1;
+    }
+    
+    printf("PART 3: Reading file line by line:\n");
+    while (fgets(line, sizeof(line), fp) != NULL){
+        printf("%s", line);
+    }
+   
+   fclose(fp);
+   printf("\n\nAll three tasks completed successfully!\n");
+   return 0;
+}
+
