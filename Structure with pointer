@@ -1,0 +1,134 @@
+// Write a program using a struct student to store name, roll number, and marks.
+//Use a function with a structure pointer to print the details.
+/* 
+#include<stdio.h>
+struct student{
+    char name[25];
+    int roll;
+    float marks;
+};
+void stud(struct student *ptr){
+    int i;
+    for(i=0;i<3;i++){
+        printf("The name of the student is %s\n,roll no is %d\n and the marks are %.2f\n",(ptr+i)->name,(ptr+i)->roll,(ptr+i)->marks);
+    }
+}
+int main(){
+    struct student s[3];
+    int i;
+    for(i=0;i<3;i++){
+
+        printf("Enter the name,roll no.and marks of the student %d: ",i+1);
+        scanf("%s %d %f",s[i].name,&s[i].roll,&s[i].marks);
+    }
+    stud(s);
+    return 0;
+}
+*/
+
+/*
+Define a struct book with book_id, title, author, price.
+Write two functions:
+one to read a book using pointer
+one to display the book details.
+*/
+/* 
+#include<stdio.h>
+struct book{
+    int book_id;
+    char book_title[50];
+    char author[50];
+    float price;
+};
+void readbook(struct book *p)
+{
+    // passing the address of the structure here 
+    scanf("%d %s %s %f",&p->book_id,p->book_title,p->author,&p->price);
+   }
+   
+
+void disbook(struct book *r){
+    int i;
+    for(i=0;i<3;i++){
+        // printing the book details using loop here using pointer that is pointing to the elements of the structures
+        printf("\nBook %d Details:\n", i+1);
+        printf("Book ID : %d\n", (r+i)->book_id);
+        printf("Title   : %s\n", (r+i)->book_title);
+        printf("Author  : %s\n", (r+i)->author);
+        printf("Price   : %.2f\n", (r+i)->price);
+    }
+}
+int main(){
+    struct book b[3];
+    int i;
+    // using loop to get the details of the books and calling the readbook that many times and passing the structure array address element by element
+    for(i=0;i<3;i++){
+        printf("Enter the book id,title,author and price: ");
+        readbook(&b[i]);
+    }
+    // calling the display book function to display the details
+      disbook(b);
+    return 0;
+}
+*/
+
+// Make a struct complex with real and imaginary parts.
+//Write a function that takes two structure pointers and returns their addition.
+#include<stdio.h>
+
+struct complex{
+int real;
+int imag;
+};
+
+// 'p' stores the address of the structure variable passed from main()
+
+void com(struct complex *p)
+{
+scanf("%d %d", &p->real, &p->imag);  // storing values at the address pointed by 'p'
+}
+
+// Function to add two complex numbers
+// 'a' and 'b' store addresses of complex numbers c and c1
+// We access their values using pointer notation and add them
+void addCom(struct complex *a, struct complex *b) 
+{
+
+    int r1, i1;  
+
+    r1 = a->real + b->real;   
+    i1 = a->imag + b->imag;   
+
+        // Printing the addition result in standard complex form
+    printf("The addition is %d+%di", r1, i1);
+
+}
+
+int main()
+{
+    struct complex c;   // structure variable to store first complex number
+    struct complex c1;  // structure variable to store second complex number
+
+    printf("Enter the real and imaginary part1: ");
+    com(&c);   // passing address of 'c' to store input in it using pointer
+
+    printf("Enter the real and imaginary part2: ");
+    com(&c1);  // passing address of 'c1' to store input in it
+
+    // Calling addition function and passing addresses of both structure variables
+    addCom(&c, &c1);
+
+return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
